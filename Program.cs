@@ -17,35 +17,20 @@ namespace JsonChallenge
             var task1iv = new Article2020();
             var task1v = new UserBoomer();
             var task1vi = new ContainsTips();
+            var task1vii = new AugustArticle();
 
             var task2i = new purchaseFebruary();
             var task2ii = new PurchaseAri();
             var task2iii = new GrandPrice();
             
 
-            // foreach(var abc in task1i.UserNoPhone()){
-            //     Console.WriteLine(abc);
-            // }
-
-            // foreach(var abc in task1ii.UserArticles()){
-            //     Console.WriteLine(abc);
-            // }
-
-            // foreach(var abc in task1iii.NameAnnis()){
-            //     Console.WriteLine(abc);
-            // }
-
-            // foreach(var abc in task1iv.Year2020()){
-            //     Console.WriteLine(abc);
-            // }
-
-            // foreach(var abc in task1v.Born1986()){
-            //     Console.WriteLine(abc);
-            // }
-
-            // foreach(var abc in task1vi.LinusTips()){
-            //     Console.WriteLine(abc);
-            // }
+            Console.WriteLine(task1i.UserNoPhone());
+            Console.WriteLine(task1ii.UserArticles());
+            Console.WriteLine(task1iii.NameAnnis());
+            Console.WriteLine(task1iv.Year2020());
+            Console.WriteLine(task1v.Born1986());
+            Console.WriteLine(task1vi.LinusTips());
+            Console.WriteLine(task1vii.BeforeAugust());
 
             // foreach(var abc in task2i.BuyFebruary()){
             //     Console.WriteLine(abc);
@@ -57,9 +42,9 @@ namespace JsonChallenge
             // }
             // Console.WriteLine(sum);
 
-            foreach(var abc in task2iii.GrandLow()){
-                Console.WriteLine(abc);
-            }
+            // foreach(var abc in task2iii.GrandLow()){
+            //     Console.WriteLine(abc);
+            // }
         }
     }
 }

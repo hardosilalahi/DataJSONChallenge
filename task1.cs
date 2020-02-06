@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Linq;
 using System.IO;
+using Newtonsoft.Json.Linq;
 
 namespace JsonChallenge
 {
@@ -14,18 +15,18 @@ namespace JsonChallenge
     }
     public class profile{
         public string Full_name{get; set;}
-        public string Birthday{get; set;}
+        public DateTime Birthday{get; set;}
         public List<string> Phones{get; set;}
     }
     public class articles{
         public int Id{get; set;}
         public string Title{get; set;}
-        public string Published_at{get; set;}
+        public DateTime Published_at{get; set;}
     }
     public class noPhoneNumber{
         static string filePath = @"/Users/user/JsonChallenge/jsonFiles/data1.json";
 
-        public List<string> UserNoPhone(){
+        public string UserNoPhone(){
             var json = File.ReadAllText(filePath);
 
             var jObject = JsonConvert.DeserializeObject<List<user>>(json);
@@ -37,14 +38,14 @@ namespace JsonChallenge
                     result.Add(i.Username);
                 }
             }
-            return result;
+            return String.Join(',', result);;
         }
     }
 
     public class HaveArticles{
         static string filePath = @"/Users/user/JsonChallenge/jsonFiles/data1.json";
 
-        public List<string> UserArticles(){
+        public string UserArticles(){
             var json = File.ReadAllText(filePath);
 
             var jObject = JsonConvert.DeserializeObject<List<user>>(json);
@@ -56,14 +57,14 @@ namespace JsonChallenge
                     result.Add(i.Username);
                 }
             }
-            return result;
+            return String.Join(',', result);
         }
     }
 
     public class HaveAnnis{
         static string filePath = @"/Users/user/JsonChallenge/jsonFiles/data1.json";
 
-        public List<string> NameAnnis(){
+        public string NameAnnis(){
             var json = File.ReadAllText(filePath);
 
             var jObject = JsonConvert.DeserializeObject<List<user>>(json);
@@ -71,18 +72,19 @@ namespace JsonChallenge
             List<string> result = new List<string>();
 
             foreach(var i in jObject){
-                if(i.Profile.Full_name.Contains("Annis") == true){
+                var x = i.Profile.Full_name.ToLower();
+                if(x.Contains("annis") == true){
                     result.Add(i.Username);
                 }
             }
-            return result;
+            return String.Join(',', result);
         }
     }
 
     public class Article2020{
         static string filePath = @"/Users/user/JsonChallenge/jsonFiles/data1.json";
 
-        public List<string> Year2020(){
+        public string Year2020(){
             var json = File.ReadAllText(filePath);
 
             var jObject = JsonConvert.DeserializeObject<List<user>>(json);
@@ -91,19 +93,21 @@ namespace JsonChallenge
 
             foreach(var i in jObject){
                 foreach(var j in i.Articles){
-                    if(j.Published_at.Contains("2020") == true){
+                    var x = j.Published_at.ToLocalTime();
+                    if(x.Year == 2020){
                         result.Add(i.Username);
                     }
                 }
             }
-            return result;
+            var realResult = result.Distinct();
+            return String.Join(',', realResult);
         }
     }
 
     public class UserBoomer{
         static string filePath = @"/Users/user/JsonChallenge/jsonFiles/data1.json";
 
-        public List<string> Born1986(){
+        public string Born1986(){
             var json = File.ReadAllText(filePath);
 
             var jObject = JsonConvert.DeserializeObject<List<user>>(json);
@@ -111,18 +115,19 @@ namespace JsonChallenge
             List<string> result = new List<string>();
 
             foreach(var i in jObject){
-                if(i.Profile.Birthday.Contains("1986") == true){
-                    result.Add(i.Username);
+                var x = i.Profile.Birthday.ToLocalTime();
+                if(x.Year == 1986){
+                result.Add(i.Username);
                 }
             }
-            return result;
+            return String.Join(',', result);
         }
     }
 
     public class ContainsTips{
         static string filePath = @"/Users/user/JsonChallenge/jsonFiles/data1.json";
 
-        public List<string> LinusTips(){
+        public string LinusTips(){
             var json = File.ReadAllText(filePath);
 
             var jObject = JsonConvert.DeserializeObject<List<user>>(json);
@@ -131,12 +136,35 @@ namespace JsonChallenge
 
             foreach(var i in jObject){
                 foreach(var j in i.Articles){
-                    if(j.Title.Contains("Tips") == true){
-                        result.Add(i.Username);
+                    var x = j.Title.ToLower();
+                    if(x.Contains("tips") == true){
+                        result.Add(j.Title);
                     }
                 }
             }
-            return result;
+            return String.Join(',', result);
+        }
+    }
+
+    public class AugustArticle{
+        static string filePath = @"/Users/user/JsonChallenge/jsonFiles/data1.json";
+
+        public string BeforeAugust(){
+            var json = File.ReadAllText(filePath);
+
+            var jObject = JsonConvert.DeserializeObject<List<user>>(json);
+
+            List<string> result = new List<string>();
+
+            foreach(var i in jObject){
+                foreach(var j in i.Articles){
+                    var x = j.Published_at.ToLocalTime();
+                    if(x.Year <= 2019 && x.Month < 08){
+                        result.Add(j.Title);
+                    }
+                }
+            }
+            return String.Join(',', result);
         }
     }
 }
