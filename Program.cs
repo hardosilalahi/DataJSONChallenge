@@ -32,17 +32,11 @@ namespace JsonChallenge
             // Console.WriteLine(task1vi.LinusTips());
             // Console.WriteLine(task1vii.BeforeAugust());
 
-            // Console.WriteLine(task2i.BuyFebruary());
+            Console.WriteLine(task2i.BuyFebruary());
+            Console.WriteLine(task2ii.BuyAri());
+            Console.WriteLine(task2iii.GrandLow());
 
-            int sum = 0;
-            foreach(var abc in task2ii.BuyAri()){
-                sum += abc;
-            }
-            Console.WriteLine($"Total Ari's buy: {sum}");
-
-            // foreach(var abc in task2iii.GrandLow()){
-            //     Console.WriteLine(abc);
-            // }
+            // Console.WriteLine(task2iii.GrandLow());
         }
     }
 }

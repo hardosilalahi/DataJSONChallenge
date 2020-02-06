@@ -8,7 +8,7 @@ namespace JsonChallenge
 {
     public class order{
         public string Order_id{get; set;}
-        public string Created_at{get; set;}
+        public DateTime Created_at{get; set;}
         public customer Customer{get; set;}
         public List<items> Items{get; set;}
     }
@@ -35,7 +35,8 @@ namespace JsonChallenge
             List<string> result = new List<string>();
 
             foreach(var i in jObject){
-                if(i.Created_at.Contains("-02-") == true){
+                var x = i.Created_at.ToLocalTime();
+                if(x.Month == 02){
                     result.Add(i.Order_id);
                 }
             }
@@ -46,7 +47,7 @@ namespace JsonChallenge
     public class PurchaseAri{
         static string filePath = @"/Users/user/JsonChallenge/jsonFiles/data2.json";
 
-        public List<int> BuyAri(){
+        public string BuyAri(){
             var json = File.ReadAllText(filePath);
 
             var jObject = JsonConvert.DeserializeObject<List<order>>(json);
@@ -60,26 +61,65 @@ namespace JsonChallenge
                     }
                 }
             }
-            return result;
+            var sum = 0;
+            foreach(var jumlah in result){
+                sum += jumlah;
+            }
+            return $"Total Ari's buy: {sum}";
         }
     }
     public class GrandPrice{
         static string filePath = @"/Users/user/JsonChallenge/jsonFiles/data2.json";
-        public List<string> GrandLow(){
+        public string GrandLow(){
             var json = File.ReadAllText(filePath);
 
             var jObject = JsonConvert.DeserializeObject<List<order>>(json);
-
+            var palingIrit = new List<string>();
             List<string> result = new List<string>();
+            var ari = new List<int>();
+            var ririn = new List<int>();
+            var annis = new List<int>();
+
             foreach(var i in jObject){
-                foreach(var j in i.Items){
-                    var sum = (j.Price * j.Qty);
-                    if(sum < 300000){
-                        result.Add(i.Customer.Name);
+                if(i.Customer.Name == "Ari"){
+                    foreach(var j in i.Items){
+                        ari.Add(j.Price * j.Qty);
                     }
                 }
             }
-            return result;
+
+            foreach(var i in jObject){
+                if(i.Customer.Name == "Ririn"){
+                    foreach(var j in i.Items){
+                        ririn.Add(j.Price * j.Qty);
+                    }
+                }
+            }
+
+            foreach(var i in jObject){
+                if(i.Customer.Name == "Annis"){
+                    foreach(var j in i.Items){
+                        annis.Add(j.Price * j.Qty);
+                    }
+                }
+            }
+            
+            var grandAri = ari.Sum();
+            var grandRirin = ririn.Sum();
+            var grandAnnis = annis.Sum();
+
+            if(grandAri < 300000){
+                palingIrit.Add("Ari");
+            }
+            if(grandRirin < 300000){
+                palingIrit.Add("Ririn");
+            }
+            if(grandAnnis < 300000){
+                palingIrit.Add("Annis");
+            }
+
+
+            return String.Join(',', palingIrit);
         }
     }
 
