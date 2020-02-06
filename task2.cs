@@ -27,7 +27,7 @@ namespace JsonChallenge
     public class purchaseFebruary{
         static string filePath = @"/Users/user/JsonChallenge/jsonFiles/data2.json";
 
-        public List<string> BuyFebruary(){
+        public string BuyFebruary(){
             var json = File.ReadAllText(filePath);
 
             var jObject = JsonConvert.DeserializeObject<List<order>>(json);
@@ -39,7 +39,7 @@ namespace JsonChallenge
                     result.Add(i.Order_id);
                 }
             }
-            return result;
+            return String.Join(',', result);
         }
     }
 

@@ -24,23 +24,21 @@ namespace JsonChallenge
             var task2iii = new GrandPrice();
             
 
-            Console.WriteLine(task1i.UserNoPhone());
-            Console.WriteLine(task1ii.UserArticles());
-            Console.WriteLine(task1iii.NameAnnis());
-            Console.WriteLine(task1iv.Year2020());
-            Console.WriteLine(task1v.Born1986());
-            Console.WriteLine(task1vi.LinusTips());
-            Console.WriteLine(task1vii.BeforeAugust());
+            // Console.WriteLine(task1i.UserNoPhone());
+            // Console.WriteLine(task1ii.UserArticles());
+            // Console.WriteLine(task1iii.NameAnnis());
+            // Console.WriteLine(task1iv.Year2020());
+            // Console.WriteLine(task1v.Born1986());
+            // Console.WriteLine(task1vi.LinusTips());
+            // Console.WriteLine(task1vii.BeforeAugust());
 
-            // foreach(var abc in task2i.BuyFebruary()){
-            //     Console.WriteLine(abc);
-            // }
+            // Console.WriteLine(task2i.BuyFebruary());
 
-            // int sum = 0;
-            // foreach(var abc in task2ii.BuyAri()){
-            //     sum += abc;
-            // }
-            // Console.WriteLine(sum);
+            int sum = 0;
+            foreach(var abc in task2ii.BuyAri()){
+                sum += abc;
+            }
+            Console.WriteLine($"Total Ari's buy: {sum}");
 
             // foreach(var abc in task2iii.GrandLow()){
             //     Console.WriteLine(abc);
