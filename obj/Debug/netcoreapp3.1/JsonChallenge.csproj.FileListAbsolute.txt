@@ -1,0 +1,13 @@
+/Users/user/JsonChallenge/bin/Debug/netcoreapp3.1/JsonChallenge
+/Users/user/JsonChallenge/bin/Debug/netcoreapp3.1/JsonChallenge.deps.json
+/Users/user/JsonChallenge/bin/Debug/netcoreapp3.1/JsonChallenge.runtimeconfig.json
+/Users/user/JsonChallenge/bin/Debug/netcoreapp3.1/JsonChallenge.runtimeconfig.dev.json
+/Users/user/JsonChallenge/bin/Debug/netcoreapp3.1/JsonChallenge.dll
+/Users/user/JsonChallenge/bin/Debug/netcoreapp3.1/JsonChallenge.pdb
+/Users/user/JsonChallenge/bin/Debug/netcoreapp3.1/Newtonsoft.Json.dll
+/Users/user/JsonChallenge/obj/Debug/netcoreapp3.1/JsonChallenge.csprojAssemblyReference.cache
+/Users/user/JsonChallenge/obj/Debug/netcoreapp3.1/JsonChallenge.AssemblyInfoInputs.cache
+/Users/user/JsonChallenge/obj/Debug/netcoreapp3.1/JsonChallenge.AssemblyInfo.cs
+/Users/user/JsonChallenge/obj/Debug/netcoreapp3.1/JsonChallenge.csproj.CopyComplete
+/Users/user/JsonChallenge/obj/Debug/netcoreapp3.1/JsonChallenge.dll
+/Users/user/JsonChallenge/obj/Debug/netcoreapp3.1/JsonChallenge.pdb
