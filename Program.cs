@@ -34,7 +34,7 @@ namespace JsonChallenge
 
             // Console.WriteLine(task2i.BuyFebruary());
             // Console.WriteLine(task2ii.BuyAri());
-            // Console.WriteLine(task2iii.GrandLow());
+            Console.WriteLine(task2iii.GrandLow());
 
             // Console.WriteLine(task2iii.GrandLow());
             // MeetingRoom.HasItems();

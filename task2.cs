@@ -70,57 +70,42 @@ namespace JsonChallenge
     }
     public class GrandPrice{
         static string filePath = @"/Users/user/JsonChallenge/jsonFiles/data2.json";
+        
         public string GrandLow(){
             var json = File.ReadAllText(filePath);
-
             var jObject = JsonConvert.DeserializeObject<List<order>>(json);
-            var palingIrit = new List<string>();
-            List<string> result = new List<string>();
-            var ari = new List<int>();
-            var ririn = new List<int>();
-            var annis = new List<int>();
 
-            foreach(var i in jObject){
-                if(i.Customer.Name == "Ari"){
-                    foreach(var j in i.Items){
-                        ari.Add(j.Price * j.Qty);
+            List<string> iritPeople = new List<string>();
+            List<string> nameList = new List<string>();
+
+            foreach (var i in jObject){nameList.Add(i.Customer.Name);}
+
+            var buyerList = nameList.Distinct();
+
+            string[] Buyer = buyerList.ToArray();
+
+            int buyerCount = buyerList.Count();
+            int jumlah = 0;
+
+            for (int i = 0; i < buyerCount; i++){
+                foreach (var j in jObject){
+                    if (j.Customer.Name == Buyer[i]){
+                        foreach (var k in j.Items){
+                            jumlah += ((k.Price) * (k.Qty));
+                        }
                     }
                 }
-            }
 
-            foreach(var i in jObject){
-                if(i.Customer.Name == "Ririn"){
-                    foreach(var j in i.Items){
-                        ririn.Add(j.Price * j.Qty);
-                    }
+                if (jumlah < 300000){
+                    iritPeople.Add(Buyer[i]);
+                    jumlah = 0;
                 }
-            }
-
-            foreach(var i in jObject){
-                if(i.Customer.Name == "Annis"){
-                    foreach(var j in i.Items){
-                        annis.Add(j.Price * j.Qty);
-                    }
+                else{
+                    jumlah = 0;
                 }
             }
             
-            var grandAri = ari.Sum();
-            var grandRirin = ririn.Sum();
-            var grandAnnis = annis.Sum();
-
-            if(grandAri < 300000){
-                palingIrit.Add("Ari");
-            }
-            if(grandRirin < 300000){
-                palingIrit.Add("Ririn");
-            }
-            if(grandAnnis < 300000){
-                palingIrit.Add("Annis");
-            }
-
-
-            return String.Join(',', palingIrit);
+            return String.Join(',', iritPeople);
         }
     }
-
 }
