@@ -53,17 +53,13 @@ namespace JsonChallenge
             var jObject = JsonConvert.DeserializeObject<List<order>>(json);
 
             List<int> result = new List<int>();
-
+            var sum = 0;
             foreach(var i in jObject){
                 if(i.Customer.Name == "Ari"){
                     foreach(var j in i.Items){
-                        result.Add(j.Price * j.Qty);
+                        sum += (j.Price * j.Qty);
                     }
                 }
-            }
-            var sum = 0;
-            foreach(var jumlah in result){
-                sum += jumlah;
             }
             return $"Total Ari's buy: {sum}";
         }
@@ -104,7 +100,7 @@ namespace JsonChallenge
                     jumlah = 0;
                 }
             }
-            
+
             return String.Join(',', iritPeople);
         }
     }
