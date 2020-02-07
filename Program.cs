@@ -37,11 +37,11 @@ namespace JsonChallenge
             // Console.WriteLine(task2iii.GrandLow());
 
             // Console.WriteLine(task2iii.GrandLow());
-            MeetingRoom.HasItems();
-            ElectronicDevices.HasElectronic();
-            Furnitures.HasFurnitures();
-            PurchasedAt.HasPurchased();
-            ItemBrown.HasBrown();
+            // MeetingRoom.HasItems();
+            // ElectronicDevices.HasElectronic();
+            // Furnitures.HasFurnitures();
+            // PurchasedAt.HasPurchased();
+            // ItemBrown.HasBrown();
         }
     }
 }
