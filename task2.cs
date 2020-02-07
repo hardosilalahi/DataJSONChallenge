@@ -64,6 +64,7 @@ namespace JsonChallenge
             return $"Total Ari's buy: {sum}";
         }
     }
+    
     public class GrandPrice{
         static string filePath = @"/Users/user/JsonChallenge/jsonFiles/data2.json";
         
